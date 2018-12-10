@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        //JS监听浏览器文字大小代码
+        "use strict";
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = (clientWidth / 7.5) + 'px';
+                };
+    
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<style>
+    body{
+        margin: 0;
+    }
+    .scene{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0.2rem .1rem;
+    }
+    .sceneitem{
+        margin: 0.05rem;
+        display: flex;
+        font-size: .30rem;
+        color: #ffffff;
+        width: 3.52rem;
+        height:2.26rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: centerl
+    }
+</style>
+<body>
+    <div class="scene">
+        <div class="sceneitem" style="background-image:url(img/scene2.png)">
+            广电出版
+        </div>
+        <div class="sceneitem" style="background-image:url(img/scene2.png)">
+            广电出版
+        </div>
+    </div>
+</body>
+</html>

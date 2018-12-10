@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        //JS监听浏览器文字大小代码
+        "use strict";
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = (clientWidth / 7.5) + 'px';
+                };
+    
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<style>
+    .search{
+        margin-bottom: .2rem;
+    }
+    .searchname{
+        color:rgba(51,51,51,1);
+        font-size: .3rem;
+        line-height: .5rem;
+    }
+    .searchdetail{
+        padding: .6rem .34rem .6rem .23rem;
+        height: 4.46rem;
+        display: flex;
+        margin-bottom: .2rem;
+
+    }
+    .searchdetailicon{
+        width: 2.76rem;
+        max-height: 4.4rem;
+    }
+    .searchdetailinfo{
+        margin-left: .45rem;
+        flex: 1;
+    }
+    .infoname{
+        margin-top: .32rem;
+    }
+    .infoname .tag{
+        font-size: .28rem;
+        display: block;
+    }
+    .infobody{
+       margin-top: .5rem
+    }
+    .infoitem{
+        display: flex;
+        font-size: .22rem;
+        
+    }
+    .infoitemlabel{
+        color: #0B76F9;
+        
+    }
+    .infoitemvalue{
+        flex: 1;
+    }
+
+    .searchlast{
+        padding: .6rem .16rem .6rem .16rem;
+        height: 2.93rem;
+        display: flex;
+        margin-bottom: .2rem;
+    }
+    .searchlasticon{
+        width: 2.76rem;
+        max-height: 2.93rem;
+    }
+    .searchlastinfo{
+        flex: 1;
+        background-color: #0B76F9;
+        color: #ffffff;
+        padding: .2rem .3rem;
+        
+    }
+    .searchlastinfo_name{
+        font-size: .2rem;
+        line-height: .36rem;
+    }
+    .searchlastinfo_value{
+        margin-top: .35rem;
+        font-size: .28rem;
+        line-height: .36rem;
+        overflow:hidden; 
+        text-overflow:ellipsis;
+        display:-webkit-box; 
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp:5; 
+    }
+</style>
+<body>
+    <div class="search">
+        <div class="searchname">
+            Search Results for : xxxxx
+        </div>
+    </div>
+    <div class="searchdetail">
+        <img class="searchdetailicon" src="https://git-scm.com/images/progit2.png" alt="">
+        <div class="searchdetailinfo">
+            <div class="infoname">
+                <span class="tag">10TB</span>
+                <span class="tag">(DJ-A3S)</span>
+            </div>
+            <div class="infobody">
+                <div class="infoitem">
+                    <div class="infoitemlabel">装载盘片数：</div>
+                    <div class="infoitemvalue">105碟</div>
+                </div>
+                <div class="infoitem">
+                    <div class="infoitemlabel">装载盘匣数</div>
+                    <div class="infoitemvalue">3只</div>
+                </div>
+                <div class="infoitem">
+                    <div class="infoitemlabel">最大储存容量</div>
+                    <div class="infoitemvalue">10.5TB</div>
+                </div>
+                <div class="infoitem">
+                    <div class="infoitemlabel">支持光驱数</div>
+                    <div class="infoitemvalue">1-3</div>
+                </div>
+                <div class="infoitem">
+                    <div class="infoitemlabel">光盘平均装载时间</div>
+                    <div class="infoitemvalue">5秒</div>
+                </div>
+                <div class="infoitem">
+                    <div class="infoitemlabel">数据接口</div>
+                    <div class="infoitemvalue">U2.0/3.0千兆以太网/可扩展万兆以太网</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="searchlast">
+        <img class="searchlasticon" src="" alt="">
+        <div class="searchlastinfo">
+            <div class="searchlastinfo_name">数据优化</div>
+            <div class="searchlastinfo_value">
+                用户的数据库（pgsql）迁移到RDS（mysql）后，发现相同的一条sql 语句，
+                数据量百万级左右，在原来postgreSQL 中执行大概是0.015s，
+                而在RDS 下直接运行是6分20秒左右，执行非常的慢，已经严重的影响用户使用RDS的信心。
+            </div>
+        </div>
+    </div>
+</body>
+</html>

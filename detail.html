@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        //JS监听浏览器文字大小代码
+        "use strict";
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = (clientWidth / 7.5) + 'px';
+                };
+    
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<style>
+    body{
+        margin: 0;
+    }
+    .detailtittle{
+        text-align: center;
+    }
+    .detailname{
+        font-size:.28rem;
+        line-height: .72rem;
+        height: .72rem;
+    }
+    .detailtime{
+        color: #666666;
+        font-size:.22rem;
+        margin-top: .05rem;
+        line-height: .32rem;;
+    }
+    .detail_text{
+
+        width: 7.18rem;
+        font-size: .22rem;
+        padding: .2rem .16rem;
+        text-align: left;
+        color: #666666;
+        line-height: .4rem;
+    }
+    .detail_text img{
+        margin: .2rem 0;
+        width: 100%;
+    }
+</style>
+<body>
+    <div class="detailtittle">
+        <div class="detailname">
+            数据优化
+        </div>
+        <div class="detailtime">2018-08-23</div>
+        
+    </div>
+    <div class="detail_text">
+        <div>
+            数据库是支持知识发现的基础工程。要获得高信息含量的、有用的知识，理想情况是原始数据是不含噪声的正确数据。数据是组成数据库的基本单元，构建高质量的数据库，必须对原始数据进行数据预处理，也就是所说的数据优化（EVDO）。
+        </div>
+        <img src="" alt="">
+    </div>
+</body>
+</html>
