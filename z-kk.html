@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        //JS监听浏览器文字大小代码
+        "use strict";
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = (clientWidth / 7.5) + 'px';
+                };
+    
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<style>
+    body{
+        margin: 0;
+    }
+    .page .toolbar{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-bottom: 1px solid #f2f2f2;
+    }
+    .page .toolbar .item{
+        height: 0.32rem;
+        padding: 0.3rem 0 0.2rem;
+        font-size: 0.28rem;
+        border-bottom: 0.05rem solid transparent;
+    }
+    .page .toolbar .item.is_active{
+        border-color: #7DAFF9;
+    }
+    .lawy{
+        margin: 0.28rem;
+        
+    }
+    .lawy .time{
+        font-size: 0.24rem;
+        color: #808080;
+        margin-bottom: 0.28rem;
+    }
+    .lawy .card{
+        box-shadow: 0 0 0.04rem #E0E0E0;
+        border-radius: 0.04rem;
+        overflow: hidden;
+        padding: 0.3rem 0.2rem;
+        display: flex;
+        
+    }
+    .lawy .card .avatar{
+        height: 1.14rem;
+        width: 1.14rem;
+        display: block;
+    }
+    .lawy .card .info{
+        flex: 1;
+        font-size: 0.22rem;
+        color: #808080;
+    }
+    .lawy .card .info .name{
+        display: flex;
+        align-items: baseline;
+    }
+    .lawy .card .info .name .big{
+        font-size: 0.26rem;
+        color: #333333;
+    }
+    .lawy .card .info .name .blu{
+        margin-left: 0.1rem;
+        color: #7DAFF9;
+    }
+    .lawy .card .info .exper{
+        margin-top: 0.10rem;
+        display: flex;
+        align-items: center;
+    }
+    .lawy .card .info .exper .icon{
+        display: block;
+        height: 0.2rem;
+        width: 0.2rem;
+    }
+    .lawy .card .info .desc{
+        margin-top: 0.1rem;
+        line-height: 0.26rem;;
+    }
+    .lawy .card .info .tags{
+        margin-top: 0.1rem;
+        display: flex;
+        align-items: center;
+    }
+    .lawy .card .info .tags span{
+        border: 1px solid #808080;
+        white-space: nowrap;
+        /* padding: 0.02rem 0.04rem; */
+        margin-bottom: 0.1rem;
+        margin-right:0.1rem;
+    }
+    .lawy .card .concat .item{
+        width: 1.20rem;
+        height: 0.4rem;
+        margin-bottom: 0.15rem;
+        border-radius: 0.2rem;
+        display: flex;
+        align-items: center;
+        padding: 0 0.2rem;
+        box-sizing: border-box;
+        justify-content: space-between;
+        color: #ffffff;
+        font-size: 0.24rem;
+    }
+    .lawy .card .concat .item.bg-blue{
+        background-color: #7DAFF9;
+    }
+    .lawy .card .concat .item.bg-green{
+        background-color: #71C972;
+    }
+    .article{
+        border-top: 0.01rem solid #F2F2F2;
+        padding: 0.28rem;
+    }
+    .article .time{
+        font-size: 0.24rem;
+        color: #808080;
+        margin-bottom: 0.28rem;
+    }
+    .article .title{
+        font-size: 0.28rem;
+        margin-bottom: 0.2rem;
+    }
+    .article .item{
+        display: flex;
+        align-items: center;
+        padding-bottom: 0.3rem;
+    }
+    .article .item .icon{
+        display: block;
+        width: 2.9rem;
+        height: 1.65rem;
+    }
+    .article .item .info{
+        margin-left: 0.18rem;
+        flex: 1;
+        padding: 0.2rem;
+    }
+    .article .item .info .desc{
+        margin-bottom: 0.3rem;
+        line-height: 0.4rem;
+        font-size: 0.24rem;
+        color: #808080;
+        text-overflow: -o-ellipsis-lastline;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    .article .item .info .bottom{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.21rem;
+    }
+    .article .item .info .bottom .blue-text{
+        color: #7DAFF9;
+    }
+    .video{
+        border-top: 0.01rem solid #F2F2F2;
+        padding: 0.28rem;
+    }
+    .video .time{
+        font-size: 0.24rem;
+        color: #808080;
+        margin-bottom: 0.28rem;
+    }
+    .video .title{
+        font-size: 0.28rem;
+        margin-bottom: 0.2rem;
+    }
+    .video-box{
+        height: 3.90rem;
+        width: 100%;
+    }
+</style>
+<body>
+    <div class="page">
+        <div class="toolbar">
+            <div class="item is_active">全部</div>
+            <div class="item">文章</div>
+            <div class="item">视频</div>
+            <div class="item">律师</div>
+        </div>
+        <div class="lawy">
+            <div class="time">刚刚</div>
+            <div class="card">
+                <img src="" class="avatar" alt="">
+                <div class="info">
+                    <div class="name"> <span class="big">张宁静</span> <span class="blu">主任</span></div>
+                    <div class="exper">
+                        <img class="icon" src="" alt="">
+                        <span>执业3年</span>
+                    </div>
+                    <div class="desc">个人介绍个人介绍个人介绍个人介绍</div>
+                    <div class="tags">
+                        <span>知识产权</span>
+                        <span>交通事故</span>
+                        <span>婚姻家庭</span>
+                    </div>
+                </div>
+                <div class="concat">
+                    <div class="item bg-blue">
+                        <img src="" alt="">
+                        <span>咨询</span>
+                    </div>
+                    <div class="item bg-green">
+                        <img src="" alt="">
+                        <span>拨号</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="article">
+            <div class="time">18:15</div>
+            <div class="title">企业借贷纠纷怎么管辖</div>
+            <div class="item">
+                <img src="" class="icon" alt="">
+                <div class="info">
+                    <div class="desc">在发生纠纷以后，我们想到的都是怎么样去进行结局，那么如果企
+                        么样去进行结局，那么如果企
+                    </div>
+                    <div class="bottom">
+                        <span class="blue-text">财务纠纷</span>
+                        <span>2019-03-15</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="video">
+            <div class="time">18:15</div>
+            <div class="title">你如果在现场你该怎么处理？</div>
+            <div class="video-box"></div>
+        </div>
+    </div>
+</body>
+</html>
